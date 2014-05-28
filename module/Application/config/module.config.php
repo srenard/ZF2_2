@@ -10,6 +10,17 @@
 return array(
     'router' => array(
         'routes' => array(
+            'Db' => array(
+                'type' => 'Literal',
+                'options' => array(
+                    'route'    => '/Db',
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Db',
+                        'action'     => 'test1',
+                    ),
+                ),
+            ),
+
             'home' => array(
                 'type' => 'Zend\Mvc\Router\Http\Literal',
                 'options' => array(
@@ -73,7 +84,8 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Db' => 'Application\Controller\DbController'
         ),
     ),
     'view_manager' => array(
