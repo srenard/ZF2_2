@@ -44,21 +44,17 @@ class DbController extends AbstractActionController {
             echo '<h3>Table ' . $tableName . "</h3>";
             // Obtention de la structure  des tables 
             $table = $metadata->getTable($tableName);
-            echo 'Avec les colonnes : ' . "<br />";
+           // echo 'Avec les colonnes : ' . "<br />";
             // On boucle sur les champs
             foreach ($table->getColumns() as $column) {
-                echo $column->getName()
-                . ' -> ' . $column->getDataType()
-                . "<br />";
+                $res["$tableName"]['c'][]=$column->getName().' -> '.$column->getDataType();
             }
-            echo "<br />";
-            echo 'Avec les contraintes : ' . "<br />";
+            
+          //  echo 'Avec les contraintes : ' . "<br />";
             // Obtention des contraintes
+            
             foreach ($metadata->getConstraints($tableName) as $constraint) {
-                /** @var $constraint Zend\Db\Metadata\Object\ConstraintObject */
-                echo $constraint->getName()
-                . ' -> ' . $constraint->getType()
-                . "<br />";
+                       $cont = $constraint->getName().' -> ' . $contraint->getType();
                 if (!$constraint->hasColumns()) {
                     continue;
                 }
@@ -72,9 +68,14 @@ class DbController extends AbstractActionController {
                     echo ' => ' . implode(', ', $fkCols);
                 }
                 echo "<br />";
+                
+                
+                // $res["$tableName"]['co'][]=$constraint->getName().' -> '.
             }
-            echo "<br /><br />";
+             
+            
         }
+        return new ViewModel(array('res' => $res));
     }
 
 }
