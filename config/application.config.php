@@ -5,6 +5,7 @@ return array(
         'Application',
         'Articles',
         'Routestest',
+        'clients',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
