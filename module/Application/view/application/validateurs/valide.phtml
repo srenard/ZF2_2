@@ -1,9 +1,31 @@
 <?php
 
-if (true === $resultat) {
-    echo 'Vrai';
-} else {
-    echo 'Faux';
-}
+use Zend\filter\StaticFilter;
 
-
+/*
+  if (true === $resultat) {
+  echo 'Vrai';
+  } else {
+  echo 'Faux';
+  }
+ */
+echo StaticFilter::execute('Fox & Raven', 'HtmlEntities')."<br />";
+//retroune Fox &amp; Raven
+echo StaticFilter::execute(':::Josette,569', 'Alnum')."<br />";
+// retourne Josette569 
+echo StaticFilter::execute('Voici mon (bel) âge : 32', 'Alpha')."<br />";
+// retourne Voicimonbelâge
+echo StaticFilter::execute('/vol/tmp/texte.txt', 'BaseName')."<br />";
+//retourne texte.txt
+echo StaticFilter::execute('<<||>>', 'HtmlEntities')."<br />";
+//retourne &lt;&lt;||&gt;&gt;
+echo StaticFilter::execute('6 est plus grand que -3', 'Int')."<br />";
+//retourne 6
+echo StaticFilter::execute('Mireille Mathieu est une merveilleuse chanteuse', 
+        'PregReplace',array('pattern' => '/Mireille Mathieu/',
+                            'replacement' => 'Patricia Kaas'))."<br />";
+//retourne Patricia Kaas est une merveilleuse chanteuse
+echo '-'.StaticFilter::execute('     Rue Volta         ', 'StringTrim')."-<br />";
+//-Rue Volta-
+echo StaticFilter::execute('<h1>Scandale à Cannes</h1>', 'StripTags')."<br />";
+//retourne Scandale à Cannes
