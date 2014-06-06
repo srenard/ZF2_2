@@ -7,6 +7,7 @@ return array(
         'Routestest',
         'clients',
         'auth',
+        'site',
     ),
 
     // These are various options for the listeners attached to the ModuleManager
