@@ -381,7 +381,7 @@ class AutoDiscover
      */
     protected function _generateClass()
     {
-        return $this->_generateWsdl($this->reflection->reflectClass($this->class)->getMethods());
+        $this->_generateWsdl($this->reflection->reflectClass($this->class)->getMethods());
     }
 
     /**
@@ -580,7 +580,6 @@ class AutoDiscover
         } else {
             $wsdl = $this->_generateFunctions();
         }
-
         return $wsdl;
     }
 

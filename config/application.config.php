@@ -8,6 +8,7 @@ return array(
         'clients',
         'auth',
         'site',
+        'Services',
     ),
 
     // These are various options for the listeners attached to the ModuleManager

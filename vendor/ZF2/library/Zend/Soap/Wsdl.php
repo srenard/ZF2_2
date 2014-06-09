@@ -863,7 +863,6 @@ class Wsdl
         if ($soapVersion != SOAP_1_1 AND $soapVersion != SOAP_1_2) {
             throw new Exception\InvalidArgumentException('Invalid SOAP version, use constants: SOAP_1_1 or SOAP_1_2');
         }
-
         if ($soapVersion == SOAP_1_1) {
             return self::SOAP_11_NS_URI;
         }

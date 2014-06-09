@@ -41,6 +41,7 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('message'))
                 ->addResource(new Resource('plan'))
                 ->addResource(new Resource('art'))
+                ->addResource(new Resource('valide'))
                 
                 
                 
@@ -73,6 +74,8 @@ class AclPlugin extends AbstractPlugin {
         $acl->allow('visiteur','message');
         $acl->allow('visiteur','plan');
         $acl->allow('visiteur','art');
+        
+        $acl->allow('visiteur','valide');
 //$acl->deny('admin', 'histoire');
         
         $action = $e->getRouteMatch()->getParams()['action'];
