@@ -55,7 +55,7 @@ class Module {
       }, 100);
       }
      */
-
+    /*
     public function onBootstrap(MvcEvent $event) {
         $eventManager = $event->getApplication()->getEventManager();
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
@@ -64,5 +64,15 @@ class Module {
             }
         }, 100);
     }
-
+     */
+      public function onBootstrap(MvcEvent $event)
+    {
+        $eventManager = $event->getApplication()->getEventManager();
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
+            $date = new \DateTime();
+            $date->setTimestamp($e->getApplication()
+                   ->getRequest()->getServer()->REQUEST_TIME);
+            echo $date->format('Y-m-d H:i:s');
+        }, 100);
+    }
 }
