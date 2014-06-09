@@ -45,13 +45,24 @@ class Module {
             ),
         );
     }
-    public function onBootstrap(MvcEvent $event)
-    {
-        $eventManager       = $event->getApplication()->getEventManager();
+
+    /*
+      public function onBootstrap(MvcEvent $event)
+      {
+      $eventManager       = $event->getApplication()->getEventManager();
+      $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
+      echo "Bonjour<br />";
+      }, 100);
+      }
+     */
+
+    public function onBootstrap(MvcEvent $event) {
+        $eventManager = $event->getApplication()->getEventManager();
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
-           echo "Bonjour<br />";
+            foreach ($this->getServiceConfig()['factories'] as $fabrique => $classe) {
+                echo $fabrique . "<br />";
+            }
         }, 100);
     }
-
 
 }
