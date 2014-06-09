@@ -7,6 +7,7 @@ use Articles\Model\Articles;
 use Articles\Model\ArticlesTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
+use Zend\Mvc\MvcEvent;
 
 class Module {
 
@@ -44,5 +45,13 @@ class Module {
             ),
         );
     }
+    public function onBootstrap(MvcEvent $event)
+    {
+        $eventManager       = $event->getApplication()->getEventManager();
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
+           echo "Bonjour<br />";
+        }, 100);
+    }
+
 
 }
