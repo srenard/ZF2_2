@@ -56,23 +56,37 @@ class Module {
       }
      */
     /*
+      public function onBootstrap(MvcEvent $event) {
+      $eventManager = $event->getApplication()->getEventManager();
+      $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
+      foreach ($this->getServiceConfig()['factories'] as $fabrique => $classe) {
+      echo $fabrique . "<br />";
+      }
+      }, 100);
+      }
+     */
+    /*
+      public function onBootstrap(MvcEvent $event)
+      {
+      $eventManager = $event->getApplication()->getEventManager();
+      $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
+      $date = new \DateTime();
+      $date->setTimestamp($e->getApplication()
+      ->getRequest()->getServer()->REQUEST_TIME);
+      echo $date->format('Y-m-d H:i:s');
+      }, 100);
+      }
+     */
+
     public function onBootstrap(MvcEvent $event) {
         $eventManager = $event->getApplication()->getEventManager();
-        $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
-            foreach ($this->getServiceConfig()['factories'] as $fabrique => $classe) {
-                echo $fabrique . "<br />";
-            }
+        $sharedEventManager = $eventManager->getSharedManager();
+        $sharedEventManager->attach('Articles\Model\ArticlesTable', 'deleteArticles', function($e) {
+        $log = new \Zend\Log\Logger();
+        $writer = new \Zend\Log\Writer\Stream('log_r2.txt');
+        $log->addWriter($writer);
+        $log->info("Suppression d'un article !!!");
         }, 100);
     }
-     */
-      public function onBootstrap(MvcEvent $event)
-    {
-        $eventManager = $event->getApplication()->getEventManager();
-        $eventManager->attach(MvcEvent::EVENT_DISPATCH, function($e) {
-            $date = new \DateTime();
-            $date->setTimestamp($e->getApplication()
-                   ->getRequest()->getServer()->REQUEST_TIME);
-            echo $date->format('Y-m-d H:i:s');
-        }, 100);
-    }
+
 }

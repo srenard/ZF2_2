@@ -43,7 +43,7 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('art'))
                 ->addResource(new Resource('valide'))
                 
-                
+                ->addResource(new Resource('delete'))
                 
                 
                 
@@ -74,6 +74,8 @@ class AclPlugin extends AbstractPlugin {
         $acl->allow('visiteur','message');
         $acl->allow('visiteur','plan');
         $acl->allow('visiteur','art');
+        
+        $acl->allow('visiteur', 'delete');
         
         $acl->allow('visiteur','valide');
 //$acl->deny('admin', 'histoire');

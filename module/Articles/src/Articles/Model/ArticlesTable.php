@@ -2,10 +2,14 @@
 namespace Articles\Model;
 
 use Zend\Db\TableGateway\TableGateway;
+use Zend\EventManager\EventManager;// pour EventManager
+use Zend\EventManager\EventManagerAwareInterface;//pour EventManager
+use Zend\EventManager\EventManagerInterface;//pour EventManager
 
-class ArticlesTable {
+class ArticlesTable implements EventManagerAwareInterface{
     protected $tableGateway;
-
+    protected $eventManager;
+    
     public function __construct(TableGateway $tableGateway) {
         $this->tableGateway = $tableGateway;
     }
@@ -48,6 +52,18 @@ class ArticlesTable {
 
     public function deleteArticles($id) {
         $this->tableGateway->delete(array('articles_id' => $id));
+        $this->getEventManager()->trigger('deleteArticles', null);
     }
+                
+    public function setEventManager(EventManagerInterface $eventManager) {
+        $eventManager->addIdentifiers(array(
+            get_called_class()
+        ));
+        $this->eventManager = $eventManager;
+    }
+    public function getEventManager() {
+        return $this->eventManager;   
+    }
+
 
 }
