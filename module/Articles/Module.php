@@ -8,6 +8,7 @@ use Articles\Model\ArticlesTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\MvcEvent;
+use Articles\Model\CreaPdf;// Pour PDF
 
 class Module {
 
@@ -41,6 +42,10 @@ class Module {
             $resultSetPrototype = new ResultSet();
             $resultSetPrototype->setArrayObjectPrototype(new Articles());
             return new TableGateway('articles', $dbAdapter, null, $resultSetPrototype);
+        },
+                'CreaPdf' => function ($sm) {
+            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+            return new CreaPdf($dbAdapter);
         },
             ),
         );
@@ -82,10 +87,10 @@ class Module {
         $eventManager = $event->getApplication()->getEventManager();
         $sharedEventManager = $eventManager->getSharedManager();
         $sharedEventManager->attach('Articles\Model\ArticlesTable', 'deleteArticles', function($e) {
-        $log = new \Zend\Log\Logger();
-        $writer = new \Zend\Log\Writer\Stream('log_r2.txt');
-        $log->addWriter($writer);
-        $log->info("Suppression d'un article !!!");
+            $log = new \Zend\Log\Logger();
+            $writer = new \Zend\Log\Writer\Stream('log_r2.txt');
+            $log->addWriter($writer);
+            $log->info("Suppression d'un article !!!");
         }, 100);
     }
 

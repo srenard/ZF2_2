@@ -14,6 +14,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Articles\Controller\Articles' => 'Articles\Controller\ArticlesController',
+            'Articles\Controller\Pdf' => 'Articles\Controller\PdfController',
         ),
     ),
     'view_manager' => array(
@@ -34,6 +35,16 @@ return array(
                     'defaults' => array(
                         'controller' => 'Articles\Controller\Articles',
                         'action' => 'tableau',
+                    ),
+                ),
+            ),
+            'pdf' => array(
+                'type' => 'literal',
+                'options' => array(
+                    'route' => '/pdf',
+                    'defaults' => array(
+                        'controller' => 'Articles\Controller\Pdf',
+                        'action' => 'fabrication',
                     ),
                 ),
             ),

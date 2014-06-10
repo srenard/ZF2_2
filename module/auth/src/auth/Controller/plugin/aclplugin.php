@@ -14,7 +14,7 @@ class AclPlugin extends AbstractPlugin {
 
     public function autorisation($e) {
 // Création des rôles
-        
+
         $acl = new Acl();
         $acl->addRole(new Role('admin'));
         $acl->addRole(new Role('visiteur'));
@@ -25,7 +25,6 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('index'))
                 ->addResource(new Resource('add'))
                 ->addResource(new Resource('voyage'))
-                
                 ->addResource(new Resource('societe'))
                 ->addResource(new Resource('histoire'))
                 ->addResource(new Resource('histoire1'))
@@ -42,14 +41,10 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('plan'))
                 ->addResource(new Resource('art'))
                 ->addResource(new Resource('valide'))
-                
                 ->addResource(new Resource('delete'))
-                
-                
-                
-               ->addResource(new Resource('accueil'))
-               
-        ->addResource(new Resource('tableau'));
+                ->addResource(new Resource('fabrication'))
+                ->addResource(new Resource('accueil'))
+                ->addResource(new Resource('tableau'));
 // Création des autorisations
         $acl->allow('visiteur', 'index');
         $acl->allow('visiteur', 'tableau');
@@ -57,29 +52,30 @@ class AclPlugin extends AbstractPlugin {
         $acl->allow('visiteur', 'voyage');
         $acl->allow('visiteur', 'accueil');
         $acl->allow('admin');
-        
+
         $acl->allow('visiteur', 'societe');
-        $acl->allow('visiteur','histoire');
-        $acl->allow('visiteur','histoire1');
-        $acl->allow('visiteur','histoire2');
-        $acl->allow('visiteur','histoire3');
-        $acl->allow('visiteur','histoire4');
-        $acl->allow('visiteur','histoire5');
-        $acl->allow('visiteur','h2010');
-        $acl->allow('visiteur','h2011');
-        $acl->allow('visiteur','h2012');
-        
-        $acl->allow('visiteur','groupe');
-        $acl->allow('visiteur','contact');
-        $acl->allow('visiteur','message');
-        $acl->allow('visiteur','plan');
-        $acl->allow('visiteur','art');
-        
+        $acl->allow('visiteur', 'histoire');
+        $acl->allow('visiteur', 'histoire1');
+        $acl->allow('visiteur', 'histoire2');
+        $acl->allow('visiteur', 'histoire3');
+        $acl->allow('visiteur', 'histoire4');
+        $acl->allow('visiteur', 'histoire5');
+        $acl->allow('visiteur', 'h2010');
+        $acl->allow('visiteur', 'h2011');
+        $acl->allow('visiteur', 'h2012');
+
+        $acl->allow('visiteur', 'groupe');
+        $acl->allow('visiteur', 'contact');
+        $acl->allow('visiteur', 'message');
+        $acl->allow('visiteur', 'plan');
+        $acl->allow('visiteur', 'art');
+
         $acl->allow('visiteur', 'delete');
-        
-        $acl->allow('visiteur','valide');
+        $acl->allow('visiteur', 'fabrication');
+
+        $acl->allow('visiteur', 'valide');
 //$acl->deny('admin', 'histoire');
-        
+
         $action = $e->getRouteMatch()->getParams()['action'];
         $sm = $this->getController()
                 ->getServiceLocator('authService');
