@@ -49,7 +49,8 @@ class PagesController extends AbstractActionController {
             'r4' => Mathematiques::flottant(),
             'r5' => Mathematiques::chaine(20, "abc"),
             'r6' => Mathematiques::facto(150),
-            'r7' => Mathematiques::quasifacto(150)
+            'r7' => Mathematiques::quasifacto(150),
+           // 'r8' => Mathematiques::factoto(150)
         ));
     }
 

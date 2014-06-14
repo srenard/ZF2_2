@@ -81,5 +81,14 @@ abstract class Mathematiques {
     public static function quasiFacto($n){
         return(sqrt(2*M_PI*$n)*pow($n/M_E,$n))*(1 + (1/(12*$n)));   
     }
+    /*
+    public static function factoto($n){
+        $f = 1;
+        for ($i = 1; $i < $n + 1; $i++){
+            $f = $f * $i;
+        }
+        return $f;
+    }
+     */
 }
 
