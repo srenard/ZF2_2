@@ -96,6 +96,7 @@ return array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
             'Application\Controller\Db' => 'Application\Controller\DbController',
             'Application\Controller\validateurs' => 'Application\Controller\validateursController',
+            'Application\Controller\Domtest' => 'Application\Controller\DomtestController'
         ),
     ),
     'view_manager' => array(
