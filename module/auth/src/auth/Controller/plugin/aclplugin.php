@@ -24,6 +24,7 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('login'))
                 ->addResource(new Resource('index'))
                 ->addResource(new Resource('add'))
+                ->addResource(new Resource('edit'))
                 ->addResource(new Resource('voyage'))
                 ->addResource(new Resource('societe'))
                 ->addResource(new Resource('histoire'))
@@ -50,6 +51,7 @@ class AclPlugin extends AbstractPlugin {
         $acl->allow('visiteur', 'index');
         $acl->allow('visiteur', 'tableau');
         $acl->allow('visiteur', 'add');
+        $acl->allow('visiteur', 'edit');
         $acl->allow('visiteur', 'voyage');
         $acl->allow('visiteur', 'accueil');
         $acl->allow('admin');
