@@ -38,7 +38,7 @@ class LoginController extends AbstractActionController {
 
     public function indexAction() {
 
-        //if already login, redirect to success page 
+        //si l'utilisateur est déjà logué, on affiche le tableau des articles
         if ($this->getAuthService()->hasIdentity()) {
             return $this->redirect()->toRoute('articles');
         }

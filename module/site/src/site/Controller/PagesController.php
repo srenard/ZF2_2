@@ -31,35 +31,35 @@ class PagesController extends AbstractActionController {
     public function histoire1Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
         return new ViewModel(array(
-            'titre' => 'Notre histoire',
+            'titre' => 'Notre histoire 1',
         ));
     }
 
     public function histoire2Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
         return new ViewModel(array(
-            'titre' => 'Notre histoire',
+            'titre' => 'Notre histoire 2',
         ));
     }
 
     public function histoire3Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
         return new ViewModel(array(
-            'titre' => 'Notre histoire',
+            'titre' => 'Notre histoire 3',
         ));
     }
 
     public function histoire4Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
         return new ViewModel(array(
-            'titre' => 'Notre histoire',
+            'titre' => 'Notre histoire 4',
         ));
     }
 
     public function histoire5Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
         return new ViewModel(array(
-            'titre' => 'Notre histoire',
+            'titre' => 'Notre histoire 5',
         ));
     }
 

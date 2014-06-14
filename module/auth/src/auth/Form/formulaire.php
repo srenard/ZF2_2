@@ -22,7 +22,7 @@ class formulaire extends Form {
         $this->add(array(
             'name' => 'passe',
             'attributes' => array(
-                'type' => 'text',
+                'type' => 'password',
             ),
             'options' => array(
                 'label' => 'Passe',
