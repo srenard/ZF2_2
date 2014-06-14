@@ -18,8 +18,6 @@ h1{
     margin-left:50%;
     left:-500px;
     font-family: helvetica,arial,sans-serif;
-
-
 }
 #conteneur_principal
 {
@@ -33,7 +31,6 @@ h1{
     margin-left:50%;
     left:-500px
 }
-
 /*breadcrumbs et menu*/
 #fil{
    background-color: #000; 

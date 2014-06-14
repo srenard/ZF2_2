@@ -4,6 +4,7 @@ namespace Site\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
+use site\Model\Mathematiques;
 
 class PagesController extends AbstractActionController {
 
@@ -28,10 +29,27 @@ class PagesController extends AbstractActionController {
         ));
     }
 
+    /*
+      public function histoire1Action() {
+      $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
+      return new ViewModel(array(
+      'titre' => 'Notre histoire 1',
+      ));
+      }
+     */
+
     public function histoire1Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
+
         return new ViewModel(array(
-            'titre' => 'Notre histoire 1',
+            'titre' => 'Notre histoire',
+            'r1' => Mathematiques::octets(4),
+            'r2' => Mathematiques::bool(),
+            'r3' => Mathematiques::entier(10, 20),
+            'r4' => Mathematiques::flottant(),
+            'r5' => Mathematiques::chaine(20, "abc"),
+            'r6' => Mathematiques::facto(150),
+            'r7' => Mathematiques::quasifacto(150)
         ));
     }
 
