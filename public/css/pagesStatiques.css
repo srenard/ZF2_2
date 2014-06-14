@@ -74,3 +74,12 @@ h1{
     font-style: italic;
     color:#ff0;
 }
+#zoneA{
+    background-color: #33f;
+    position: relative;
+    left: 200px;
+    width: 790px;
+    color:#fff;
+    text-align: left;
+    padding-left: 10px;
+}

@@ -25,13 +25,18 @@ microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
         <h1><?php echo $enfant->titre ?></h1>
         <div id='conteneur_principal'>
             <?php
+            // Fil d'ariane
             $nav = $this->navigation('Navigation');
             echo '<div id="fil">' . $nav->breadcrumbs() . '</div>';
+            //Menu de gauche
             echo '<div id="menu">' .
             $nav->menu()->render($this->navigation()->getContainer())
             . '</div>';
             ?>
+            <!--Zone de texte -->
+            <div id="zoneA">
+                <?php echo $this->content ?> 
+            </div>
         </div>
-        <?php echo $this->content ?> 
-</body>
+    </body>
 </html>
