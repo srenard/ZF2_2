@@ -41,7 +41,7 @@ class PagesController extends AbstractActionController {
     public function histoire1Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
 
-        /*
+        
         $cache = \Zend\Cache\StorageFactory::factory(array(
                     'adapter' => array(
                         'name' => 'filesystem'
@@ -53,15 +53,20 @@ class PagesController extends AbstractActionController {
                         ),
                     )
         ));
+        
+        
         $key = 'r7';
         $result = $cache->getItem($key, $success);
         if (!$success) {
             $result = Mathematiques::quasifacto(150);
             $cache->setItem($key, $result);
+            //echo "calcul";
+        }else{
+            //echo 'non calcul';
         }
 
 
-*/
+
 
         return new ViewModel(array(
             'titre' => 'Notre histoire',
@@ -71,8 +76,8 @@ class PagesController extends AbstractActionController {
             'r4' => Mathematiques::flottant(),
             'r5' => Mathematiques::chaine(20, "abc"),
             'r6' => Mathematiques::facto(150),
-            //'r7' => $result
-            'r7' => Mathematiques::quasifacto(150),
+            'r7' => $result
+            //'r7' => Mathematiques::quasifacto(150),
                 // 'r8' => Mathematiques::factoto(150)
         ));
     }
