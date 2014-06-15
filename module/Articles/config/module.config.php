@@ -1,7 +1,10 @@
 <?php
 
 return array(
+    
+    // L'utilisation d'une closure empêche de mettre en cache la configuration
     'service_manager' => array(
+        /*
         'factories' => array(
             'Zend\Log' => function($sm) {
         $log = new \Zend\Log\Logger();
@@ -10,6 +13,7 @@ return array(
         return $log;
     }
         ),
+                */
     ),
     'controllers' => array(
         'invokables' => array(

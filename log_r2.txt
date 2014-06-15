@@ -7,3 +7,6 @@
 2014-06-14T16:48:30+00:00 INFO (6): Bonjour
 2014-06-14T16:49:49+00:00 INFO (6): Suppression d'un article !!!
 2014-06-14T19:35:55+00:00 INFO (6): Bonjour
+2014-06-15T17:57:37+00:00 INFO (6): Bonjour
+2014-06-15T17:57:58+00:00 INFO (6): Suppression d'un article !!!
+2014-06-15T17:58:11+00:00 INFO (6): Suppression d'un article !!!

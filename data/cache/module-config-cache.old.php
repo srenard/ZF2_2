@@ -489,11 +489,16 @@ return array (
     array (
       'translator' => 'MvcTranslator',
     ),
+     
     'factories' => 
     array (
+      'Zend\\Log' => 
+      Closure::__set_state(array(
+      )),
       'Zend\\Db\\Adapter\\Adapter' => 'Zend\\Db\\Adapter\\AdapterServiceFactory',
       'Navigation' => 'Zend\\Navigation\\Service\\DefaultNavigationFactory',
     ),
+       
   ),
   'translator' => 
   array (

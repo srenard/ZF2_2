@@ -8,7 +8,7 @@ use Articles\Model\ArticlesTable;
 use Zend\Db\ResultSet\ResultSet;
 use Zend\Db\TableGateway\TableGateway;
 use Zend\Mvc\MvcEvent;
-use Articles\Model\CreaPdf;// Pour PDF
+use Articles\Model\CreaPdf; // Pour PDF
 
 class Module {
 
@@ -47,6 +47,12 @@ class Module {
             $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
             return new CreaPdf($dbAdapter);
         },
+                'Zend\Log' => function($sm) {
+            $log = new \Zend\Log\Logger();
+            $writer = new \Zend\Log\Writer\Stream("log_r2.txt");
+            $log->addWriter($writer);
+            return $log;
+        }
             ),
         );
     }
