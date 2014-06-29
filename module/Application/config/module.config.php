@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route' => '/Validateurs',
                     'defaults' => array(
-                        'controller' => 'Application\Controller\Validateurs',
+                        'controller' => 'Application\Controller\validateurs',
                         'action' => 'valide',
                     ),
                 ),

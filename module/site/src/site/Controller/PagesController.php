@@ -40,21 +40,18 @@ class PagesController extends AbstractActionController {
 
     public function histoire1Action() {
         $this->layout()->setTemplate('Site/layout/layoutStatique.phtml');
-
         
         $cache = \Zend\Cache\StorageFactory::factory(array(
                     'adapter' => array(
                         'name' => 'filesystem'
                     ),
                     'plugins' => array(
-                        // Don't throw exceptions on cache errors
+                        // Pour enpêcher les excetions en cas d'erreur de cache
                         'exception_handler' => array(
                             'throw_exceptions' => false
                         ),
                     )
         ));
-        
-        
         $key = 'r7';
         $result = $cache->getItem($key, $success);
         if (!$success) {
@@ -64,10 +61,6 @@ class PagesController extends AbstractActionController {
         }else{
             //echo 'non calcul';
         }
-
-
-
-
         return new ViewModel(array(
             'titre' => 'Notre histoire',
             'r1' => Mathematiques::octets(4),

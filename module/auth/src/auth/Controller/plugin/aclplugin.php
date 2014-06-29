@@ -46,7 +46,9 @@ class AclPlugin extends AbstractPlugin {
                 ->addResource(new Resource('fabrication'))
                 ->addResource(new Resource('accueil'))
                 ->addResource(new Resource('tableau'))
-                ->addResource(new Resource('d1'));
+                ->addResource(new Resource('d1'))
+                
+                ->addResource(new Resource('formulaire'));
 // Création des autorisations
         $acl->allow('visiteur', 'index');
         $acl->allow('visiteur', 'tableau');
@@ -79,6 +81,8 @@ class AclPlugin extends AbstractPlugin {
         $acl->allow('visiteur', 'valide');
         
         $acl->allow('visiteur', 'd1');
+        
+        $acl->allow('visiteur', 'formulaire');
 //$acl->deny('admin', 'histoire');
 
         $action = $e->getRouteMatch()->getParams()['action'];
